@@ -95,7 +95,8 @@ def mp2rage_genUniDen(MP2RAGE_filenameUNI, MP2RAGE_filenameINV1, MP2RAGE_filenam
     #########
     # save image
     #########
-    new_MP2RAGEimg = nib.Nifti1Image(MP2RAGEimg_img, MP2RAGEimg.affine)
+    MP2RAGEimg_img = nib.casting.float_to_int(MP2RAGEimg_img,'int16');
+    new_MP2RAGEimg = nib.Nifti1Image(MP2RAGEimg_img, MP2RAGEimg.affine, MP2RAGEimg.header)
     nib.save(new_MP2RAGEimg, MP2RAGE_uniden_output_filename)
 
 
